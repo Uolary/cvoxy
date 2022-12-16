@@ -80,11 +80,13 @@ const refreshToken = async (req, res) => {
 
     if (RefreshToken.verifyExpiration(refreshToken)) {
       RefreshToken.findByIdAndRemove(
-        requestToken._id,
+        refreshToken._id,
         {
           useFindAndModify: false,
         }
-      ).exec();
+      ).exec((error) => {
+        if (error) return res.status(500).send({message: error});
+      });
 
       return res.status(401).send({
         message: 'Refresh token was expired. Please make a new signin request',
