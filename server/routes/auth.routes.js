@@ -23,4 +23,6 @@ module.exports = (app) => {
   app.post('/api/auth/signin', authController.signIn);
 
   app.post('/api/auth/signout', authController.signOut);
+
+  app.post('/api/auth/refreshtoken', authController.refreshToken);
 };
