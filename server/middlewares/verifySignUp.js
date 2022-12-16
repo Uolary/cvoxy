@@ -1,3 +1,4 @@
+const emailValidator = require('email-validator');
 const db = require('../models');
 const User = db.user;
 
@@ -25,6 +26,13 @@ const checkDuplicateUserNameOrEmail = (req, res, next) => {
   });
 };
 
+const checkValidEmail = (req, res, next) => {
+  if (!emailValidator.validate(req.body.email)) return res.status(400).send({message: 'Invalid email!'});
+
+  next();
+};
+
 module.exports = {
   checkDuplicateUserNameOrEmail,
+  checkValidEmail,
 };
