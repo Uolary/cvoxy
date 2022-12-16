@@ -1,7 +1,10 @@
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
+const db = require('./models');
+const dbConfig = require("./config/db.config");
 
 const app = express();
 
@@ -19,10 +22,27 @@ app.use(cookieSession({
   httpOnly: true,
 }));
 
+// routes
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+
 app.get('/', (req, res) => {
   res.json({message: 'cvoxy API'});
 });
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
+});
+
+db.mongoose.connect(
+  `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+).then(() => {
+  console.log('Successfully connect to MongoDB.');
+}).catch((error) => {
+  console.error('Connect error', error);
+  process.exit();
 });
