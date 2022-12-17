@@ -6,6 +6,7 @@ import {Box, Button, Paper, Typography} from "@mui/material";
 import styles from './Auth.module.scss';
 import logo from './img/logo.svg';
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 const theme = createTheme();
 
@@ -39,7 +40,7 @@ const Auth = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main">
         <Grid
           item
           xs={false}
@@ -94,7 +95,24 @@ const Auth = () => {
                     variant="outlined"
                     size="large"
                     sx={{mt: 1, mb: 2}}
-                    onClick={() => onClickAction()}
+                    onClick={() => onClickAction(null)}
+                  >
+                    Back
+                  </Button>
+                </>
+              )
+            }
+            {
+              activeAction === authActions.signUp && (
+                <>
+                  <SignUp />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="outlined"
+                    size="large"
+                    sx={{mt: 1, mb: 2}}
+                    onClick={() => onClickAction(null)}
                   >
                     Back
                   </Button>

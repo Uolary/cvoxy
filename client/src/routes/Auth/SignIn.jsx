@@ -6,7 +6,7 @@ const SignIn = () => {
       <Typography component="h2" variant="h4">
         Sign in
       </Typography>
-      <Box component="form" noValidate sx={{ mt: 1 }}>
+      <Box component="form" noValidate sx={{mt: 1}}>
         <TextField
           margin="normal"
           required
