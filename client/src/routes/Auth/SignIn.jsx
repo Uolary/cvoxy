@@ -31,7 +31,8 @@ const SignIn = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{mt: 3, mb: 2}}
+          size="large"
+          sx={{mt: 3}}
         >
           Sign In
         </Button>
