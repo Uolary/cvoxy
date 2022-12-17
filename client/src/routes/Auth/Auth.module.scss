@@ -1,0 +1,32 @@
+.authWrap {
+  @media (min-width: 600px) {
+    background-size: cover;
+    background-position: center;
+    transition: background 2s ease-in-out;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &.bg1 {
+    background-image: url("img/1.jpg");
+  }
+
+  &.bg2 {
+    background-image: url("img/2.jpg");
+  }
+
+  &.bg3 {
+    background-image: url("img/3.jpg");
+  }
+
+  &.bg4 {
+    background-image: url("img/4.jpg");
+  }
+}
+
+.authContent {
+  margin: 64px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
