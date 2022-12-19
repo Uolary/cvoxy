@@ -1,0 +1,42 @@
+.authWrap {
+  @media (min-width: 600px) {
+    background-size: cover;
+    background-position: center;
+    transition: background 2s ease-in-out;
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  &.bg1 {
+    background-image: url("img/1.jpg");
+  }
+
+  &.bg2 {
+    background-image: url("img/2.jpg");
+  }
+
+  &.bg3 {
+    background-image: url("img/3.jpg");
+  }
+
+  &.bg4 {
+    background-image: url("img/4.jpg");
+  }
+}
+
+.authContent {
+  text-align: center;
+  margin: 64px 32px;
+  width: 100%;
+}
+
+.authInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-bottom: 15px;
+  width: 230px;
+}
