@@ -1,7 +1,7 @@
 import {Navigate} from "react-router-dom";
 
 const AuthProvider = ({element}) => {
-  const isAuth = false;
+  const isAuth = true;
 
   if (!isAuth) {
     return (
