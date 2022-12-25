@@ -13,4 +13,5 @@ module.exports = (app) => {
 
   app.post('/api/user/:userId/education', [authJwt.verifyToken], educationController.createOrEditEducationItem);
   app.delete('/api/user/:userId/education', [authJwt.verifyToken], educationController.deleteEducationItem);
+  app.get('/api/user/:userId/education', [authJwt.verifyToken], educationController.getEducationData);
 };
