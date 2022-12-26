@@ -11,7 +11,7 @@ let store = null;
 const defaultState = {
   user: {},
   isLoggedIn: false,
-}
+};
 
 export function initStore (forceState) {
   if (store) {
@@ -26,7 +26,7 @@ export function initStore (forceState) {
         const savedState = localStorage.getItem('state');
 
         if (savedState) {
-          initializedState = JSON.stringify(savedState);
+          initializedState = JSON.parse(savedState);
         } else {
           initializedState = defaultState;
         }
@@ -60,14 +60,14 @@ export function initStore (forceState) {
       switch (action.type) {
         case 'user/set': {
           return {
-            ...state || {},
+            ...state,
             user: action.payload,
           };
         }
 
         case 'isLoggedIn/set': {
           return {
-            ...state || {},
+            ...state,
             isLoggedIn: action.payload,
           };
         }

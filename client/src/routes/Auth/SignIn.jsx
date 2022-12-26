@@ -2,8 +2,11 @@ import {Alert, Box, Button, CircularProgress, TextField, Typography} from "@mui/
 import {useCallback, useState} from "react";
 import authService from "../../http/services/authService";
 import styles from './Auth.module.scss';
+import {useNavigate} from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [error, setError] = useState('');
   const [isLoading, toggleLoading] = useState(false);
 
@@ -16,6 +19,10 @@ const SignIn = () => {
 
     try {
       const userData = await authService.signIn(data.get('user-name'), data.get('password'));
+
+      if (userData.id) {
+        navigate('/', {replace: true});
+      }
     } catch (error) {
       const {message} = error.response?.data;
 
