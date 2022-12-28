@@ -1,0 +1,19 @@
+.avatar {
+  max-width: 140px;
+  height: auto;
+  border-radius: 50%;
+  margin: 15px 0;
+}
+
+.sidePanelHeader {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  transition: 0.27s;
+  overflow: hidden;
+  height: 0;
+
+  &.open {
+    height: 215px;
+  }
+}

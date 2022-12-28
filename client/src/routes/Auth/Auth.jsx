@@ -7,10 +7,13 @@ import styles from './Auth.module.scss';
 import logo from './img/logo.svg';
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import {useDispatch} from "react-redux";
 
 const theme = createTheme();
 
 const Auth = () => {
+  const dispatch = useDispatch();
+
   const bgClassList = useMemo(() => [styles.bg1, styles.bg2, styles.bg3, styles.bg4], []);
   const authActions = {
     signIn: 'signIn',
@@ -34,6 +37,8 @@ const Auth = () => {
         }
       });
     }, 10000);
+
+    // dispatch({type: 'isLoggedIn/out'});
 
     return () => clearInterval(intervalChangeBg);
   }, [bgClassList]);
